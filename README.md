@@ -85,7 +85,7 @@ export class ConfirmationModal {
   }
 }
 ```
-Uma vez configurado, o modal para ter essa aparencia:
+Uma vez configurado, o modal deverá ter essa aparência:
 
 ![Exemplo](https://raw.githubusercontent.com/Viceri/confirmation-modal/master/cbimage.jpg)
 
