@@ -2,5 +2,41 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "confirmation-modal": {
+      "projectType": "library",
+      "root": "projects/confirmation-modal",
+      "sourceRoot": "projects/confirmation-modal/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/confirmation-modal/tsconfig.lib.json",
+            "project": "projects/confirmation-modal/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/confirmation-modal/src/test.ts",
+            "tsConfig": "projects/confirmation-modal/tsconfig.spec.json",
+            "karmaConfig": "projects/confirmation-modal/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/confirmation-modal/tsconfig.lib.json",
+              "projects/confirmation-modal/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }},
+  "defaultProject": "confirmation-modal"
 }

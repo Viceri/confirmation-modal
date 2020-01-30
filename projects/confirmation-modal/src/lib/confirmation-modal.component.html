@@ -1,0 +1,33 @@
+<mat-card class="confirmation">
+  <div class="col">
+    <div class="modal-header">
+      <div>
+        {{ data?.header?.title}}
+      </div>
+    </div>
+  </div>
+
+  <hr class="mat-hr">
+  <div class="spacer-10"></div>
+
+  <div class="col">
+    <div class="col-lg-12 text-justify">
+      {{ data?.message }}
+    </div>
+
+    <div class="spacer-20"></div>
+
+    <div class="col-lg-12 actions d-flex justify-content-end">
+      <button (click)="setConfirmationResponse(true)" mat-raised-button color="primary">
+        {{ data?.actions?.whenTrue }}
+      </button>
+
+      <div class="separator-15"></div>
+
+      <button (click)="setConfirmationResponse(false)" mat-raised-button color="secondary">
+        {{ data?.actions?.whenFalse }}
+      </button>
+    </div>
+  </div>
+  <div class="spacer-10"></div>
+</mat-card>

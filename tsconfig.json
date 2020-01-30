@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "confirmation-modal": [
+        "dist/confirmation-modal"
+      ],
+      "confirmation-modal/*": [
+        "dist/confirmation-modal/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
