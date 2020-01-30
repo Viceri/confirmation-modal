@@ -19,5 +19,5 @@ jobs:
       uses: mayur-rawte/github-angular-actions@latest
     - name: npm install
       run: npm install
-    - name: ng t
-      run: ng t
+    - name: npm test
+      run: npm test
