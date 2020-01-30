@@ -1,5 +1,7 @@
 # CONFIRMATION MODAL MATERIAL
 
+![CI](https://github.com/Viceri/confirmation-modal/workflows/CI/badge.svg)
+
 ##### Como instalar:
 `npm i @viceri/confirmation-modal --save`
 
