@@ -1,4 +1,4 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed, fakeAsync, tick, inject } from '@angular/core/testing';
 
 import { ConfirmationModalService } from './confirmation-modal.service';
 import { MatDialogModule, MatDialog } from '@angular/material';
@@ -9,7 +9,6 @@ import { ConfirmationModal } from './confirmation-model';
 
 describe('ConfirmationModalService', () => {
   let matDialogMock: Mock<MatDialog>;
-  let service: ConfirmationModalService;
 
   const dialogRefSpyObj = jasmine.createSpyObj({ afterClosed: of(true), close: () => { }, open: of((x: Component, y: any) => { }) });
 
@@ -32,16 +31,19 @@ describe('ConfirmationModalService', () => {
   });
 
   it('should be created', () => {
-    service = TestBed.get(ConfirmationModalService);
+    const service = TestBed.get(ConfirmationModalService);
     expect(service).toBeTruthy();
   });
 
-  it('should open dialog', () => {
+  it('should open dialog', inject([ConfirmationModalService], service => {
     const options = new ConfirmationModal();
+    const action = jasmine.createSpy('action');
 
     dialogRefSpyObj.afterClosed.and.returnValue(of(true));
 
-    service.open(options).subscribe(res => expect(res).toEqual(true));
-  });
+    service.open(options, action);
+
+    expect(action).toHaveBeenCalled();
+  }));
 
 });
