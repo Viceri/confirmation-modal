@@ -1,15 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CommonModule } from '@angular/common';
 import { ConfirmationModalComponent } from './confirmation-modal.component';
-import {
-  MatButtonModule,
-  MatCardModule,
-  MatDialog,
-  MatDialogRef,
-  MatIconModule,
-  MAT_DIALOG_DATA,
-  MatDialogModule
-} from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 import { of } from 'rxjs';
 
 describe('ConfirmationModalComponent', () => {

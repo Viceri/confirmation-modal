@@ -15,7 +15,12 @@
             "tsConfig": "projects/confirmation-modal/tsconfig.lib.json",
             "project": "projects/confirmation-modal/ng-package.json"
           }
-        },
+        ,          "configurations": {
+            "production": {
+              "tsConfig": "projects/confirmation-modal/tsconfig.lib.prod.json"
+            }
+          }
+},
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {

@@ -1,24 +1,140 @@
-# ConfirmationModal
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.14.
+# CONFIRMATION MODAL MATERIAL
 
-## Code scaffolding
 
-Run `ng generate component component-name --project confirmation-modal` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project confirmation-modal`.
-> Note: Don't forget to add `--project confirmation-modal` or else it will be added to the default project in your `angular.json` file. 
 
-## Build
+![CI](https://github.com/Viceri/confirmation-modal/workflows/CI/badge.svg)
 
-Run `ng build confirmation-modal` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Publishing
 
-After building your library with `ng build confirmation-modal`, go to the dist folder `cd dist/confirmation-modal` and run `npm publish`.
+##### Como instalar:
 
-## Running unit tests
+`npm i @viceri/confirmation-modal --save`
 
-Run `ng test confirmation-modal` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+##### Dependências:
+
+Esse componente as seguintes dependências:
+
+1. @angular/material;
+
+
+
+##### Como configurar:
+
+Importe os seguintes módulos em seu NgModule:
+
+1. ConfirmationModalModule;
+
+2. MatDialogModule;
+
+3. BrowserAnimationsModule;
+
+
+
+Na propriedade entryComponents coloque o ConfirmationModalComponent;
+
+
+
+Após isso, seu NgModule deverá parecer como isso:
+
+````javascript
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    ConfirmationModalModule,
+    MatDialogModule,
+    BrowserAnimationsModule,
+    HttpClientModule
+  ],
+  providers: [],
+  entryComponents: [ConfirmationModalComponent],
+  bootstrap: [AppComponent]
+})
+
+````
+
+
+
+Adicione o theme do componente no seu styles.scss:
+
+`@import './node_modules/@viceri/confirmation-modal/theme.scss';`
+
+
+
+##### Como usar:
+
+Para chamar o modal e capturar sua resposta, basta injetar o ConfirmationModalService:
+
+
+
+```javascript
+
+@Component({
+  selector:  'app-root',
+  templateUrl:  './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export  class  AppComponent {
+
+  constructor(private  confirmationModalService: ConfirmationModalService) {
+  }
+  show() {
+      this.confirmationModalService.open(new  ConfirmationModal(), () => console.log("cofirmado"));
+  }
+
+}
+
+```
+
+Chame o método open passando como parâmetro um ConfirmationModal e um callback. O callback será chamado caso a resposta seja sim.
+
+
+
+A classe ConfirmationModal é usada para customizar a mensagem do modal, texto dos botões.
+
+
+
+```javascript
+
+export  class  ConfirmationModal {
+header: {
+    title: string,
+};
+message: string;
+actions: {
+    whenTrue: string,
+    whenFalse: string,
+};
+
+
+
+constructor() {
+
+  this.header = {
+      title:  'Confirmar ação'
+  };
+
+  this.message = 'Esta ação não poderá ser desfeita! Tem certeza que deseja continuar?';
+
+  this.actions = {
+    whenFalse:  'Não',
+    whenTrue:  'Sim'
+  };
+
+}
+
+}
+
+```
+
+Uma vez configurado, o modal deverá ter essa aparência:
+
+
+
+![Exemplo](https://raw.githubusercontent.com/Viceri/confirmation-modal/master/cbimage.jpg)

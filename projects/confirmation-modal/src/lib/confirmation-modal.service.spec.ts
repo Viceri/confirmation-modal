@@ -1,7 +1,7 @@
 import { TestBed, fakeAsync, tick, inject } from '@angular/core/testing';
 
 import { ConfirmationModalService } from './confirmation-modal.service';
-import { MatDialogModule, MatDialog } from '@angular/material';
+import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { Mock } from 'ts-mocks';
 import { of } from 'rxjs';
 import { Component } from '@angular/core';
