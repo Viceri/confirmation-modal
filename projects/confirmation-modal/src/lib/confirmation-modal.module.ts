@@ -1,9 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { ConfirmationModalComponent } from './confirmation-modal.component';
-import { MatButtonModule, MatCardModule, MatIconModule } from '@angular/material';
+
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+
 import { NgModule } from '@angular/core';
-
-
 
 @NgModule({
   declarations: [
